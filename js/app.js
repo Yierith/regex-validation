@@ -44,13 +44,6 @@ function formatTelephone(text) {
   return text.replace(regex, '($1) $2-$3');
 
 }
-
-/**
- *
- * SET UP EVENTS
- *
- */
-
 function showOrHideTip(show, element) {
   // show element when show is true, hide when false
   if (show) {
