@@ -39,7 +39,11 @@ function isValidEmail(email) {
  *
  */
 
-function formatTelephone(text) {}
+function formatTelephone(text) {
+  const regex = /^\D*(\d{3})\D*(\d{3})\D*(\d{4})$/;
+  return text.replace(regex, '($1) $2-$3');
+
+}
 
 /**
  *
@@ -71,5 +75,9 @@ usernameInput.addEventListener("input", createListener(isValidUsername));
 passwordInput.addEventListener("input", createListener(isValidPassword));
 
 telephoneInput.addEventListener("input", createListener(isValidTelephone));
+
+telephoneInput.addEventListener("blur", e => {
+  e.target.value = formatTelephone(e.target.value);
+});
 
 emailInput.addEventListener("input", createListener(isValidEmail));
